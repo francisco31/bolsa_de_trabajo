@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/02/2018 02:50:15 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mx.unam.is.modelo.Profesionista" table="profesionista" schema="bolsa" optimistic-lock="version">
+        <id name="nombre" type="serializable">
+            <column name="nombre" />
+            <generator class="assigned" />
+        </id>
+        <property name="correo" type="serializable">
+            <column name="correo" />
+        </property>
+        <property name="telefono" type="serializable">
+            <column name="telefono" />
+        </property>
+        <property name="contrasena" type="serializable">
+            <column name="contrasena" />
+        </property>
+        <property name="nacionalidad" type="serializable">
+            <column name="nacionalidad" />
+        </property>
+        <property name="carrera" type="serializable">
+            <column name="carrera" />
+        </property>
+        <property name="skilsNombre" type="serializable">
+            <column name="skils_nombre" />
+        </property>
+        <property name="skilsGrado" type="serializable">
+            <column name="skils_grado" />
+        </property>
+        <property name="faColegio" type="serializable">
+            <column name="fa_colegio" />
+        </property>
+        <property name="faGrado" type="serializable">
+            <column name="fa_grado" />
+        </property>
+        <property name="faPeriodo" type="serializable">
+            <column name="fa_periodo" />
+        </property>
+        <property name="explaPeriodo" type="serializable">
+            <column name="expla_periodo" />
+        </property>
+        <property name="explaCargo" type="serializable">
+            <column name="expla_cargo" />
+        </property>
+        <property name="explaEmpresa" type="serializable">
+            <column name="expla_empresa" />
+        </property>
+        <set name="postulars" table="postular" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="nombre" not-null="true" />
+            </key>
+            <one-to-many class="mx.unam.is.modelo.Postular" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/02/2018 02:50:15 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mx.unam.is.modelo.Empresa" table="empresa" schema="bolsa" optimistic-lock="version">
+        <id name="nombre" type="serializable">
+            <column name="nombre" />
+            <generator class="assigned" />
+        </id>
+        <property name="oficinas" type="serializable">
+            <column name="oficinas" />
+        </property>
+        <property name="fundacion" type="serializable">
+            <column name="fundacion" />
+        </property>
+        <property name="numeroEmpleados" type="java.lang.Integer">
+            <column name="numero_empleados" />
+        </property>
+        <property name="contacto" type="serializable">
+            <column name="contacto" />
+        </property>
+        <property name="presidente" type="serializable">
+            <column name="presidente" />
+        </property>
+        <set name="teners" table="tener" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="nombre" not-null="true" />
+            </key>
+            <one-to-many class="mx.unam.is.modelo.Tener" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/02/2018 02:50:15 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mx.unam.is.modelo.Tener" table="tener" schema="bolsa" optimistic-lock="version">
+        <composite-id name="id" class="mx.unam.is.modelo.TenerId">
+            <key-property name="nombre" type="binary">
+                <column name="nombre" />
+            </key-property>
+            <key-property name="puesto" type="serializable">
+                <column name="puesto" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="empresa" class="mx.unam.is.modelo.Empresa" update="false" insert="false" fetch="select">
+            <column name="nombre" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vacante" class="mx.unam.is.modelo.Vacante" update="false" insert="false" fetch="select">
+            <column name="puesto" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
